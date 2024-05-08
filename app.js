@@ -40,7 +40,7 @@ app.post('/register', async (req, res)=>{
     const name = req.body.name;
     const rol = req.body.rol;
     const pass = req.body.pass;
-    //let passwordHaash = await bcryptjs.hash(pass, 8);
+    let passwordHaash = await bcryptjs.hash(pass, 8);
     connection.query('INSERT INTO users SET?', {user:user, name:name, rol:rol, pass:passwordHaash}, async(error, results)=>{
         if(error){
             console.log(error);
@@ -63,7 +63,7 @@ app.post('/register', async (req, res)=>{
 app.post('/auth', async (req, res)=>{
     const user = req.body.user;
     const pass = req.body.pass;
-    //let passwordHaash = await bcryptjs.hash(pass, 8);
+    let passwordHaash = await bcryptjs.hash(pass, 8);
     if(user && pass){
         connection.query('SELECT * FROM users WHERE user = ?', [user], async (error, results)=>{
             if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
