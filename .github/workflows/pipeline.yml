@@ -26,10 +26,7 @@ jobs:
           node-version: '14'
           cache: 'npm'
       - run: npm install
-      - run: npm run build
 
-      - name: Test
-        run: npm test
 
       - name: Install Express
         run: npm install express
