@@ -20,19 +20,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          cache: 'npm'
           node-version: '14'
-
-      - name: Install dependencies
-        run: npm ci
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
 
       - name: Build
         run: npm run build
