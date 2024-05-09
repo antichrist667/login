@@ -34,9 +34,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install bcryptjs
-        run: npm install bcryptjs@2.4.3
-
       - name: Build
         run: npm run build
 
