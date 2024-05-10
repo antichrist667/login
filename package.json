@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-test": "NODE_ENV=test node app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build:digitalocean": "npm install --production=false"
   },
   "keywords": [],
   "author": "",
