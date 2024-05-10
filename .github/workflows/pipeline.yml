@@ -25,11 +25,8 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
-      - run: npm install
-      
-      - name: Install dependencies and build
-        run: npm run build:digitalocean
-      
+      - run: npm ci
+
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
